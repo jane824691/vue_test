@@ -1,5 +1,5 @@
 <script setup>
-import NavComp from "./Nav.vue "
+import NavComp from "./Nav.vue"
 import MainComp from "./Main.vue"
 import { ref } from "vue";
 let text = ref("Test");
