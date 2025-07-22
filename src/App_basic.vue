@@ -48,13 +48,17 @@ let mouseoverHandler = function () {
   <main>主內容</main>
   <div v-html="htmlData.toUpperCase()"></div>
 
+  <!-- 根據變數動態設定 class name -->
+  <!-- :class 是 v-bind:class 的縮寫 -->
   <div v-bind:class="info01">Hi</div>
   <div :class="info02">Hi</div>
 
   <div>{{ info03.toUpperCase() }}</div>
 
   <div :class="data ? 'Red' : 'light'">Hello</div>
+  <!-- 顯示字串為純文字 -->
   <div>{{ message }}</div>
+  <!-- 將字串內容解析為 HTML, 並插入元素內部, 須注意 XSS 風險。 -->
   <div v-html="message"></div>
   <div v-bind:class="name">操作標籤的屬性</div>
 
@@ -80,6 +84,7 @@ let mouseoverHandler = function () {
       </li>
     </ul>
   </div>
+  <!--  v-on:click縮寫 = @click.-->
   <span v-on:click="handler">文字</span>
   <span @click.once="clickHandler" @mouseover="mouseoverHandler">按鈕</span>
   <a href="https://tw.voicetube.com/" @click.prevent="handler">前往Voicetube</a>

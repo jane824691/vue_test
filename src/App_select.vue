@@ -7,6 +7,7 @@ let clearContent = function () {
 
 
 // 多選適合陣列形式裝資料[]
+// ref是雙向綁定
 let interests = ref([]);
 let clearChoose = function () {
   interests.value = [];
