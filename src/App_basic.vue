@@ -1,4 +1,28 @@
-<!-- Vue專屬js寫法+setup -->
+<!-- NOTE: <script setup> = 整個 .vue 檔本身 = 一個 Component 函式
+沒有<script setup>時的寫法:
+  <script>
+import { ref, computed } from 'vue'
+
+export default {
+  setup() {
+    const count = ref(0)
+    const double = computed(() => count.value * 2)
+
+    return { count, double }
+  }
+}
+</script>
+
+有之後的寫法 - 可以不用 export default 跟 return：
+<script setup>
+import { ref, computed } from 'vue'
+
+const count = ref(0)
+const double = computed(() => count.value * 2)
+</script>
+-->
+
+<!-- Vue3專屬js寫法+setup -->
 <script setup>
 // console.log(`name`);
 // var name = `Jonh`;
@@ -7,10 +31,10 @@
 // js的變數也可放在v-html裡面
 let htmlData = "<div>Hello</div>";
 
-let info01 = "Intro of bible 01";
+let info01 = "Intro of bible 01"; // 比如綁v-bind:class="info01",就是命名有個class叫info01
 let info02 = "Intro of bible 02";
 
-let info03 = "Intro of bible 03";
+let info03 = "Intro of bible 03"; // 綁 <div>{{ info03.toUpperCase() }}</div> 就顯示INTRO OF BIBLE 03
 
 // 也可放布林值
 let data = true;
@@ -22,10 +46,10 @@ let name = "content";
 // for迴圈寫法是v-for="變數in陣列"
 let apiData = [1, 2, 3];
 
-// for迴圈-陣列索引:寫法是v-for="(變數,變數)in陣列"
+// for迴圈-陣列索引:寫法是v-for="(變數, 變數anotherData) in 陣列"
 let anotherData = ["A", "B", "C"];
 
-// for迴圈-物件: 寫法是v-for="(變數,變數)in物件"
+// for迴圈-物件: 寫法是v-for="(變數, 變數otherData) in 物件"
 let otherData = { x: 3, y: 4 };
 
 let level = 0.5;
@@ -70,7 +94,7 @@ let mouseoverHandler = function () {
 
   <div v-for="n in apiData">{{ n }}月</div>
   <div v-for="(text, index) in anotherData">
-    第{{ index }}筆 - {{ text }}數據
+    第{{ index + 1 }}筆 - {{ text }}數據
   </div>
   <div v-for="(value, key) in otherData">物件屬性{{ key }} - 為{{ value }}</div>
   <div v-if="level === 3">大神</div>

@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
-// 透過ref & .value可變響應式狀態
+// 透過ref & .value可變響應式狀態, 無框架的js要利用該變數通常是state.value.title在<template>裡
+// 這邊加了ref之後變雙向綁定變簡略, 寫在<template>變{{ state.title }}
 let state = ref({ 
     title: "網站標題", 
     className: "title" 

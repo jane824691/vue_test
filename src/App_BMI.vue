@@ -32,6 +32,7 @@ let calculateBMI = function () {
   <main>
     <h1>BMI計算機</h1>
     <p>身高：</p>
+    <!-- v-model是input裡面的雙向綁定, 有點像onChange={e => setName(e.target.value)} 可變內文 -->
     <input type="text" v-model="tall" />
     <p>體重：</p>
     <input type="text" v-model="weight" />
